@@ -1,0 +1,272 @@
+theme
+{	
+	background = "background.png"
+	font = "Terminus.ttf"
+
+# opacity values, from 0 (transparent) to 255 (opaque)
+	button_opacity          = 255
+	window_opacity          = 128
+	selected_window_opacity = 255
+
+# Colors can be given in a hex quadruplet (values from 00 to ff)
+# or via comma-separated decimals (0 to 255). Format is RGBA
+#	mask_text_color   = [ 28b428ff ]
+#	cursor_text_color = [ 145a14dd ]
+#	other_text_color  = [ 404040ff ]
+
+	default_text_color   =  220, 220, 220, 255
+	default_cursor_color =  23,  147, 209, 255
+	other_text_color     =  255, 255, 255, 255
+
+# wether we should clear background image during dialogs
+# (default is no, unless you set it differently in qingy config file)...
+	clear_background = no
+
+# this is the native resolution of the theme, i.e. the resolution the theme
+# was designed for. If qingy detects a running resolution different than this
+# one, it will (try to) scale things so that they will look the same across
+# all resolutions. If this is omitted, qingy will default to 800x600 to
+# maintain compatibility with older themes...
+	native_resolution = 1024x768
+
+  mouse_cursor =
+	{
+		"lightsaber-blue.gif",  # image path
+		5,            # hotspot: x offset
+		5             # hotspot: y offset
+	}
+
+}
+
+#window
+#{
+#	# window geometry
+#	x      = 0
+#	y      = 96
+#	width  = 1024
+#	height = 64
+#
+#	# text size: chose between 'small', 'medium' and 'large'
+#	# default is 'large'
+#	text_size        = small
+#	
+#	# text alignment: 'left', 'center', 'right'. Default is 'left'
+#	text_orientation = center
+#
+#	#colors: if not defined, theme defaults will be used
+#	#text_color   = 180, 40, 40, 255
+#	#cursor_color =  90, 20, 20, 221
+#
+#	# update time, 0 means do not update, which is default
+#	# this setting has meaning only if window type is "label"
+#	# time = 0
+#
+#	# window type, allowed values are:
+#	# "label", "button", "login", "password", "combo"
+#	type    = "label"
+#	content = "Welcome to <INS_CMD_HERE>"
+#	# The <INS_CMD_HERE> above is substituted with the output of 'command'
+#	command = "hostname"
+#}
+window
+{
+	x                = 10
+	y                = 200
+	width            = 500
+	height           = 64
+	text_orientation = left
+  text_size        = medium
+	type             = "label"
+	content          = "welcome to the dark side..."
+
+	mouse_cursor =
+	{
+		"lightsaber-red.gif",  # image path
+		6,            # hotspot: x offset
+		16            # hotspot: y offset
+	}
+}
+
+
+window
+{
+	x                = 1
+	y                = 250
+	width            = 153
+	height           = 64
+	text_orientation = right
+  text_size        = small
+	type             = "label"
+	content          = "login:"
+	linkto           = "login"
+}
+
+window
+{
+	x            = 170
+	y            = 262
+	width        = 716
+	height       = 64
+  text_size    = small
+	type         = "login"
+
+	mouse_cursor =
+	{
+		"IBeam.png",  # image path
+		6,            # hotspot: x offset
+		16            # hotspot: y offset
+	}
+}
+
+window
+{
+	x                = 1
+	y                = 300
+	width            = 153
+	height           = 64
+	text_orientation = right
+  text_size        = small
+	type             = "label"
+	content          = "passwd:"
+	linkto           = "password"
+}
+
+window
+{
+	x            = 170
+	y            = 311
+	width        = 716
+	height       = 64
+  text_size    = medium
+	type         = "password"
+
+	mouse_cursor =
+	{
+		"IBeam.png",  # image path
+		6,            # hotspot: x offset
+		16            # hotspot: y offset
+	}
+}
+
+window
+{
+	x                = 1
+	y                = 350
+	width            = 153
+	height           = 64
+	text_orientation = right
+  text_size        = small
+	type             = "label"
+	content          = "session:"
+	linkto           = "session"
+}
+
+window
+{
+	x          = 170
+	y          = 362
+	width      = 716
+	height     = 64
+  text_size    = small
+	type       = "combo"
+
+	# So far, the only combobox allowed is "sessions"
+	command = "sessions"
+
+	mouse_cursor =
+	{
+		"dbllightsaber-blue.gif",  # image path
+		0,            # hotspot: x offset
+		0             # hotspot: y offset
+	}
+}
+
+window
+{
+	x      = 60
+	y      = 736
+	width  = 1024
+	height = 38
+
+	text_orientation = left
+	text_size        = small
+
+	text_color   = 75, 75, 75, 255
+	time = 1
+
+	type    = "label"
+	content = "<INS_CMD_HERE>"
+	command = "echo `date +%a,` `date +%d` `date +%b` `date +%Y,` `uptime`"
+}
+
+window
+{
+	# window geometry
+	x    = 966
+	y    = 659
+	type = "button"
+
+	# Allowed commands:
+	# "halt", "reboot", "sleep", "screensaver"
+	command = "halt"
+
+	# Image prefix: will be converted to
+	# "<name>_normal.png" and "<name>_mouseover.png"
+	content = "power"
+
+	mouse_cursor =
+	{
+		"lightsaber-red.gif",  # image path
+		0,            # hotspot: x offset
+		0             # hotspot: y offset
+	}
+}
+
+window
+{
+	x       = 966
+	y       = 601
+	type    = "button"
+	command = "reboot"
+	content = "reset"
+
+	mouse_cursor =
+	{
+		"lightsaber-orange.gif",  # image path
+		0,            # hotspot: x offset
+		0             # hotspot: y offset
+	}
+}
+
+window
+{
+	x       = 966
+	y       = 488
+	type    = "button"
+	command = "sleep"
+	content = "sleep"
+
+	mouse_cursor =
+	{
+		"r2d2.png",  # image path
+		0,            # hotspot: x offset
+		0             # hotspot: y offset
+	}
+}
+
+window
+{
+	x       = 966
+	y       = 544
+	type    = "button"
+	command = "screensaver"
+	content = "screensaver"
+
+	mouse_cursor =
+	{
+		"lightsaber-green.gif",  # image path
+		0,            # hotspot: x offset
+		0             # hotspot: y offset
+	}
+}
+
